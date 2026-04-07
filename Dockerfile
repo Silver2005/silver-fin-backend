@@ -1,4 +1,5 @@
-FROM php:8.2-apache
+# On passe à la version 8.3 pour supporter Laravel 13
+FROM php:8.3-apache
 
 # Installation des dépendances minimales
 RUN apt-get update && apt-get install -y \
@@ -10,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     git \
     curl
 
-# Installation des extensions PHP essentielles (On garde le strict nécessaire pour éviter le timeout)
+# Installation des extensions PHP essentielles
 RUN docker-php-ext-install pdo_mysql bcmath gd
 
 # Activation de la réécriture Apache pour Laravel
