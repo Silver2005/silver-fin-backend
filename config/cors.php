@@ -1,20 +1,18 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Cross-Origin Resource Sharing (CORS) Configuration
     |--------------------------------------------------------------------------
     */
 
-    // On autorise toutes les routes commençant par /api/
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login', 'register'],
 
     'allowed_methods' => ['*'],
 
-    // Remplace '*' par l'URL de ton frontend React pour plus de stabilité
-    'allowed_origins' => ['http://localhost:5173'], 
+    // On autorise tout le monde (*) pour débloquer le déploiement
+    'allowed_origins' => ['*'], 
 
     'allowed_origins_patterns' => [],
 
@@ -24,7 +22,5 @@ return [
 
     'max_age' => 0,
 
-    // TRÈS IMPORTANT : Doit être à true pour l'authentification API
     'supports_credentials' => true,
-
 ];
